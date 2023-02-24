@@ -14,12 +14,9 @@ class TicketCreate extends React.Component {
   }
 
   handleSubmit(event) {
+    let url = "http://localhost:8080/api/v1/ticket";
     alert("A name was submitted: " + this.state.description);
     event.preventDefault();
-  }
-  url = "http://localhost:8080/api/v1/ticket";
-  onSubmit(e) {
-    e.preventDefault();
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -29,15 +26,6 @@ class TicketCreate extends React.Component {
     fetch("http://localhost:8080/api/v1/ticket", requestOptions)
       .then((response) => response.json())
       .then((data) => this.setState({ description: data.description }));
-
-    // fetch(this.props.formAction, {
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ description: this.state.description }),
-    //   method: "POST",
-    // });
 
     this.setState({ description: "" });
   }
