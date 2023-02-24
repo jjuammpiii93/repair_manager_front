@@ -1,15 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import Layout from './components/Layout';
+import Ticket from './pages/Ticket';
+import TicketCreate from './pages/TicketCreate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter ([
+  {
+    path:'/',
+    element: <Layout/>,
+    children: [
+      {
+        path:'/ticket',
+        element: <Ticket/>
+      },
+
+      {
+        path:'/ticket/create',
+        element: <TicketCreate/>
+      }
+    ]
+  }
+])
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
