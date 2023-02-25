@@ -5,6 +5,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Layout from './components/Layout';
 import Ticket from './pages/Ticket';
 import TicketCreate from './pages/TicketCreate';
+import Customer from './pages/Customer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter ([
@@ -16,10 +17,13 @@ const router = createBrowserRouter ([
         path:'/ticket',
         element: <Ticket/>
       },
-
       {
         path:'/ticket/create',
         element: <TicketCreate/>
+      },
+      {
+        path:'/clientes',
+        element: <Customer/>
       }
     ]
   }
